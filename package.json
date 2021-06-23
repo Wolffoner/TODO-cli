@@ -2,7 +2,7 @@
   "name": "Task-ToDo-CLI",
   "version": "0.0.1",
   "description": "Task To Do in CLI",
-  "main": "index.js",
+  "main": "app.js",
   "author": "Wolffoner",
   "license": "MIT",
   "private": false,
