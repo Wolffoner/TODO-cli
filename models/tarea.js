@@ -6,7 +6,7 @@ class Tarea {
   fechaCompletado = null;
   fechaAsignado = null;
 
-  constructor(desc){
+  constructor(desc = ''){
     this.descripcion = desc;
     this.id = uuidv4();
     this.fechaAsignado = new Date();
