@@ -16,7 +16,12 @@ Aplicacion de Tareas por hacer con sus respectivo CRUD.
 
 ## Install
 
+Clona este repositorio con el siguiente comando:
+```git clone https://github.com/Wolffoner/TODO-cli```
+Luego instala las dependencias
+
 Si usas npm:
-`npm i`
+```npm i```
+
 Si usas yarn:
-`yarn`
+```yarn```
