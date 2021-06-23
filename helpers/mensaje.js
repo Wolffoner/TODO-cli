@@ -1,6 +1,6 @@
 require('colors');
 
-const showMenu = () => {
+const mostrarMenu = () => {
   console.clear();
   console.log('====================='.green);
   console.log('Seleccione una opcion'.green);
@@ -12,10 +12,19 @@ const showMenu = () => {
   console.log(`${`4.`.green} Listar Tareas Completadas`);
   console.log(`${`5.`.green} Completar Tarea(s)`);
   console.log(`${`6.`.green} Borrar Tarea(s)`);
-  console.log(`${`7.`.green} Salir`);
+  console.log(`${`7.`.green} Salir\n`);
+
+const readline = require('readline').createInterface({
+  input: process.stdin,
+  output: process.stdout
+})
+
+readline.question(`Seleccione una opcion: \n`, (opt) =>{
+  console.log(`${opt}`);
+  readline.close();
+})
+
 }
-
-
 module.exports = {
-  showMenu
+  mostrarMenu
 }
