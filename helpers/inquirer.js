@@ -43,14 +43,28 @@ const preguntas = [
   }
 ];
 
+const pausaOpt = [
+  {
+    type:`input`,
+    name:`pausa`,
+    message:`Presione ${`ENTER`.green} para continuar`
+  }
+]
+
 const inquirerMenu = async () => {
   console.clear();
   console.log('====================='.green);
   console.log('Seleccione una opcion'.green);
   console.log('=====================\n'.green);
-  const opt = await inquirer.prompt(preguntas);
-  return opt;
+  const {opcion} = await inquirer.prompt(preguntas);
+  return opcion;
 }
+
+const inquirerPausa = async () => {
+  await inquirer.prompt(pausaOpt);
+}
+
 module.exports = {
-  inquirerMenu
+  inquirerMenu,
+  inquirerPausa
 }
