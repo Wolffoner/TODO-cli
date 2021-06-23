@@ -3,22 +3,25 @@ const {
   inquirerPausa,
   leerInput  
 } = require('./helpers/inquirer');
-const { guardarDB } = require('./helpers/guardarData');
+const { guardarDB, leerDB } = require('./helpers/fileController');
 const Tareas = require('./models/tareas');
 require('colors');
-console.clear();
 
 const main = async() =>{
+  console.clear();
   let optElegida = '2';
   let tareas = new Tareas();
-
+  let tareasDB = leerDB();
+  if(tareasDB) 
+    tareas.cargarTareasDB(tareasDB);   
+ 
   const opciones = {
     '1': async() =>{
       const desc = await leerInput(`Descripcion: `);
       tareas.crearTarea(desc);
     },
     '2': () =>{
-      console.log(tareas.listadoArr);
+      console.log(tareas.getTareas());
     },
     '3': () =>{},
     '4': () =>{},
