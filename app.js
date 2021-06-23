@@ -5,13 +5,14 @@ const {
 } = require('./helpers/inquirer');
 const { guardarDB, leerDB } = require('./helpers/fileController');
 const Tareas = require('./models/tareas');
-require('colors');
+const { imprimirTareas } = require(`./helpers/printController`); 
 
 const main = async() =>{
   console.clear();
-  let optElegida = '2';
+  let optElegida = '';
   let tareas = new Tareas();
   let tareasDB = leerDB();
+
   if(tareasDB) 
     tareas.cargarTareasDB(tareasDB);   
  
@@ -21,7 +22,7 @@ const main = async() =>{
       tareas.crearTarea(desc);
     },
     '2': () =>{
-      console.log(tareas.getTareas());
+      imprimirTareas(tareas.getTareas());
     },
     '3': () =>{},
     '4': () =>{},
