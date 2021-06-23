@@ -17,7 +17,7 @@ const main = async() =>{
       tareas.crearTarea(desc);
     },
     '2': () =>{
-      console.log(tareas.getTareas());
+      console.log(tareas.listadoArr);
     },
     '3': () =>{},
     '4': () =>{},
