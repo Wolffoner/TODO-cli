@@ -3,6 +3,7 @@ const {
   inquirerPausa,
   leerInput  
 } = require('./helpers/inquirer');
+const { guardarDB } = require('./helpers/guardarData');
 const Tareas = require('./models/tareas');
 require('colors');
 console.clear();
@@ -30,6 +31,7 @@ const main = async() =>{
   while(optElegida !== '0'){
     optElegida = await inquirerMenu();
     await opciones[optElegida]();
+    await guardarDB(tareas.getTareas());
     if(optElegida !== '0') await inquirerPausa();
   }
 }
