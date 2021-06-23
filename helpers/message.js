@@ -6,13 +6,13 @@ const showMenu = () => {
   console.log('Seleccione una opcion'.green);
   console.log('=====================\n'.green);
 
-  console.log('1. Crear Tareas');
-  console.log('2. Listar Tareas');
-  console.log('3. Listar Tareas Pendientes');
-  console.log('4. Listar Tareas Completadas');
-  console.log('5. Completar Tarea(s)');
-  console.log('6. Borrar Tarea(s)');
-  console.log('0. Salir');
+  console.log(`${`1.`.green} Crear Tareas`);
+  console.log(`${`2.`.green} Listar Tareas`);
+  console.log(`${`3.`.green} Listar Tareas Pendientes`);
+  console.log(`${`4.`.green} Listar Tareas Completadas`);
+  console.log(`${`5.`.green} Completar Tarea(s)`);
+  console.log(`${`6.`.green} Borrar Tarea(s)`);
+  console.log(`${`7.`.green} Salir`);
 }
 
 
