@@ -1,0 +1,13 @@
+{
+  "name": "Task-ToDo-CLI",
+  "version": "0.0.1",
+  "description": "Task To Do in CLI",
+  "main": "index.js",
+  "author": "Wolffoner",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "colors": "^1.4.0",
+    "inquirer": "^8.1.1"
+  }
+}
