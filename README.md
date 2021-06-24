@@ -31,3 +31,10 @@ Si usas yarn:
 ```
 yarn
 ```
+
+## Run
+
+Para correr el CRUD de Tareas por hacer solo usas en tu terminal:
+```
+node app
+```
