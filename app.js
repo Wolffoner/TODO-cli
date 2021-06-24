@@ -1,7 +1,8 @@
 const { 
   inquirerMenu, 
   inquirerPausa,
-  leerInput  
+  leerInput,  
+  borrarElem
 } = require('./helpers/inquirer');
 const { guardarDB, leerDB } = require('./helpers/fileController');
 const Tareas = require('./models/tareas');
@@ -18,7 +19,7 @@ const main = async() =>{
  
   const opciones = {
     '1': async() =>{
-      const desc = await leerInput(`Descripcion: `);
+      let desc = await leerInput(`Descripcion: `);
       tareas.crearTarea(desc);
     },
     '2': () =>{
@@ -34,8 +35,11 @@ const main = async() =>{
     },
     '5': () =>{},
     '6': () =>{},
-    '7': () =>{},
-    '8': () =>{}
+    '7': async() =>{
+      let id = await borrarElem(tareas.listadoArr);
+      tareas.borrarTarea(id);
+    },
+    '0': () =>{}
   }
 
   while(optElegida !== '0'){

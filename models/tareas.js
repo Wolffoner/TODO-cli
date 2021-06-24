@@ -7,7 +7,7 @@ class Tareas {
     this._listado = {};
   }
   
-  cargarTareasDB(data){
+  cargarTareasDB(data = {}){
     Object.keys(data).forEach(key =>{
       this._listado[key] = data[key];
       let date = new Date(this._listado[key].fechaAsignado)
@@ -30,9 +30,14 @@ class Tareas {
 
   crearTarea(desc = ''){
     let tarea = new Tarea(desc);
-    this._listado[tarea.getId()] = tarea;
+    this._listado[tarea.id] = tarea;
   }
-
+  
+  borrarTarea( id = ''){
+    if(this._listado[id]){
+      delete this._listado[id];
+    }
+  }
 }
 
 module.exports = Tareas;
