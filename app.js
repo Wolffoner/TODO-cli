@@ -2,7 +2,8 @@ const {
   inquirerMenu, 
   inquirerPausa,
   leerInput,  
-  borrarElem
+  borrarElem,
+  confirmar
 } = require('./helpers/inquirer');
 const { guardarDB, leerDB } = require('./helpers/fileController');
 const Tareas = require('./models/tareas');
@@ -37,7 +38,11 @@ const main = async() =>{
     '6': () =>{},
     '7': async() =>{
       let id = await borrarElem(tareas.listadoArr);
-      tareas.borrarTarea(id);
+      let ok = await confirmar(`Estas seguro de borrar el ${`elemento`.red}?`);
+      if(ok){
+        console.log(`Elemento Borrado.`);
+        tareas.borrarTarea(id);
+      }
     },
     '0': () =>{}
   }

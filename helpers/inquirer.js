@@ -98,16 +98,28 @@ const borrarElem = async (tareas = []) =>{
       type:`list`,
       name: `id`,
       message: `Borrar`,
-      choices
+      choices,
+
     }
   ];
   let { id } = await inquirer.prompt(menuBorrar);
   return id;
 }
 
+const confirmar = async(message) =>{
+  let questions = {
+    type: 'confirm',
+    name: 'ok',
+    message
+  }
+  let { ok } = await inquirer.prompt(questions);
+  return ok;
+}
+
 module.exports = {
   inquirerMenu,
   inquirerPausa,
   leerInput,
-  borrarElem
+  borrarElem,
+  confirmar
 }
