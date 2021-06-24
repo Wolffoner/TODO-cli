@@ -5,7 +5,7 @@ const {
 } = require('./helpers/inquirer');
 const { guardarDB, leerDB } = require('./helpers/fileController');
 const Tareas = require('./models/tareas');
-const { imprimirTareas } = require(`./helpers/printController`); 
+const { imprimirTareas, imprimirTareasSegun } = require(`./helpers/printController`); 
 
 const main = async() =>{
   console.clear();
@@ -22,10 +22,16 @@ const main = async() =>{
       tareas.crearTarea(desc);
     },
     '2': () =>{
-      imprimirTareas(tareas.getTareas());
+      imprimirTareas(tareas.listado);
     },
-    '3': () =>{},
-    '4': () =>{},
+    '3': () =>{
+      let completado = true;
+      imprimirTareasSegun(tareas.listadoArr, completado);
+    },
+    '4': () =>{
+      let completado = false;
+      imprimirTareasSegun(tareas.listadoArr, completado);
+    },
     '5': () =>{},
     '6': () =>{},
     '7': () =>{},
@@ -35,7 +41,7 @@ const main = async() =>{
   while(optElegida !== '0'){
     optElegida = await inquirerMenu();
     await opciones[optElegida]();
-    await guardarDB(tareas.getTareas());
+    await guardarDB(tareas.listado);
     if(optElegida !== '0') await inquirerPausa();
   }
 }

@@ -24,7 +24,7 @@ class Tareas {
     return listado;
   }
 
-  getTareas(){
+  get listado(){
     return this._listado;
   }
 

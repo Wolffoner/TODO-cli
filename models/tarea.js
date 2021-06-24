@@ -12,34 +12,31 @@ class Tarea {
     this.fechaAsignado = new Date();
   }
 
-  getId(){
+  get id(){
     return this.id;
   }
 
-  getDescripcion(){
+  get descripcion(){
     return this.descripcion;
   }
 
-  setDescripcion(desc){
+  set descripcion(desc){
     this.descripcion = desc;
   }
 
-  getFechaCompletado(){
-    let fecha = (this.fechaCompletado === null)
-      ? `Sin Completar`
-      : this.fechaCompletado;
-    return fecha;
+  get fechaCompletado(){
+    return this.fechaCompletado;
   }
 
-  setFechaCompletado(fecha){
+  set fechaCompletado(fecha){
     this.fechaCompletado = fecha;
   }
 
-  getFechaAsignado(){
+  get fechaAsignado(){
     return this.fechaAsignado;
   }
 
-  setFechaAsignado(fecha){
+  set fechaAsignado(fecha){
     this.fechaAsignado = fecha;
   }
 }

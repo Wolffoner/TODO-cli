@@ -15,6 +15,26 @@ const imprimirTareas = (data = {}) =>{
   })
 }
 
+const imprimirTareasSegun = (data = [], completado = true) =>{
+  let tareasSegun = (completado)
+    ? data.filter(tarea =>{ return tarea.fechaCompletado !== null})
+    : data.filter(tarea =>{ return tarea.fechaCompletado === null})
+  let i = 0;
+
+  tareasSegun.forEach(tarea =>{
+    i++;
+    let fechaCompletado = (tarea.fechaCompletado === null)
+      ? `Incompleto`.red
+      : `${tarea.fechaCompletado}`.blue
+    console.log(`${`Tarea ${i}`.green}`);  
+    console.log(`${`Descripcion:`.cyan} ${tarea.descripcion}`);
+    console.log(`${`Fecha Completado:`.cyan} ${fechaCompletado}`);
+    console.log(`${`Fecha Asignacion:`.cyan} ${`${tarea.fechaAsignado}`.yellow}`);
+    console.log(`======================================\n`);
+  })
+}
+
 module.exports = {
-  imprimirTareas
+  imprimirTareas,
+  imprimirTareasSegun
 }
