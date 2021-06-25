@@ -3,6 +3,7 @@ const {
   inquirerPausa,
   leerInput,  
   borrarElem,
+  actualizarElem,
   confirmar,
   mostrarListadoCheckList
 } = require('./helpers/inquirer');
@@ -40,7 +41,11 @@ const main = async() =>{
       tareas.completarTareas(ids);
       imprimirTareasSegun(tareas.listadoArr, true); 
     },
-    '6': () =>{},
+    '6': async() =>{
+      let id = await actualizarElem(tareas.listadoArr);
+      let desc = await leerInput(`Descripcion: `);
+      tareas.getTareaById(id).descripcion = desc; 
+    },
     '7': async() =>{
       let id = await borrarElem(tareas.listadoArr);
       let ok = await confirmar(`Estas seguro de borrar el ${`elemento`.red}?`);
@@ -49,7 +54,10 @@ const main = async() =>{
         tareas.borrarTarea(id);
       }
     },
-    '0': () =>{}
+    '0': () =>{
+      console.clear();
+      console.log(`Nos vemos!`.green);
+    }
   }
 
   while(optElegida !== '0'){

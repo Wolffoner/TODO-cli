@@ -106,6 +106,28 @@ const borrarElem = async (tareas = []) =>{
   return id;
 }
 
+const actualizarElem = async (tareas = []) =>{
+  let choices = tareas.map((tarea, i) =>{
+    let idx = `${i + 1}.`.green;
+    return {
+      value: tarea.id,
+      name: `${ idx } ${ tarea.descripcion }`
+    }
+  });
+  
+  let menuUpdate = [
+    { 
+      type:`list`,
+      name: `id`,
+      message: `Borrar`,
+      choices,
+
+    }
+  ];
+  let { id } = await inquirer.prompt(menuUpdate);
+  return id;
+}
+
 const confirmar = async(message) =>{
   let questions = {
     type: 'confirm',
@@ -148,6 +170,7 @@ module.exports = {
   inquirerPausa,
   leerInput,
   borrarElem,
+  actualizarElem,
   confirmar,
   mostrarListadoCheckList
 }

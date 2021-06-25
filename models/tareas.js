@@ -20,6 +20,10 @@ class Tareas {
     return this._listado;
   }
 
+  getTareaById( id = ''){
+    return this._listado[id];
+  }
+
   crearTarea(desc = ''){
     let tarea = new Tarea(desc);
     this._listado[tarea.id] = tarea;
