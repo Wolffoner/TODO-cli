@@ -3,7 +3,9 @@ const {
   inquirerPausa,
   leerInput,  
   borrarElem,
-  confirmar
+  confirmar,
+  mostrarListadoCheckList,
+  toggleCompletadas
 } = require('./helpers/inquirer');
 const { guardarDB, leerDB } = require('./helpers/fileController');
 const Tareas = require('./models/tareas');
@@ -34,7 +36,11 @@ const main = async() =>{
       let completado = false;
       imprimirTareasSegun(tareas.listadoArr, completado);
     },
-    '5': () =>{},
+    '5': async () =>{
+      let ids = await mostrarListadoCheckList(tareas.listadoArr);
+      tareas.completarTareas(ids);
+      imprimirTareasSegun(tareas.listadoArr, true); 
+    },
     '6': () =>{},
     '7': async() =>{
       let id = await borrarElem(tareas.listadoArr);
