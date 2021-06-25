@@ -4,8 +4,7 @@ const {
   leerInput,  
   borrarElem,
   confirmar,
-  mostrarListadoCheckList,
-  toggleCompletadas
+  mostrarListadoCheckList
 } = require('./helpers/inquirer');
 const { guardarDB, leerDB } = require('./helpers/fileController');
 const Tareas = require('./models/tareas');

@@ -6,7 +6,7 @@ const imprimirTareas = (data = {}) =>{
     i++;
     let fechaCompletado = (data[key].fechaCompletado === null)
       ? `Incompleto`.red
-      : `${data[keys].fechaCompletado}`.blue
+      : `${data[key].fechaCompletado}`.blue
     console.log(`${`Tarea ${i}`.green}`);  
     console.log(`${`Descripcion:`.cyan} ${data[key].descripcion}`);
     console.log(`${`Fecha Completado:`.cyan} ${fechaCompletado}`);
